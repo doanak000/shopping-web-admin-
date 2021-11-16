@@ -1,3 +1,5 @@
+//Connect to mongodb:
+const dbURI = 'mongodb+srv://admin:ptudw19@cluster0.hbgza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 (function ($) {
     "use strict";
