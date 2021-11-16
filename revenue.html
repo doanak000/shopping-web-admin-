@@ -230,13 +230,13 @@
       <div class="table-title">
         <div class="row"></div>
       </div>
-      <p>Top sản phẩm được yêu thích nhất</p>
+      <p>Most popular products</p>
       <table class="table table-bordered" id="myTable">
         <thead>
           <tr class="ex">
-            <th width="auto">Tên sản phẩm</th>
-            <th width="auto">Số lượng đã bán</th>
-            <th>Doanh thu</th>
+            <th width="auto">Name</th>
+            <th width="auto">Quantity sold</th>
+            <th>Revenue</th>
           </tr>
         </thead>
         <tbody>
@@ -297,7 +297,7 @@
           if (shouldSwitch) {
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
-            swal("Thành Công!", "Bạn Đã Lọc Thành Công", "success");
+            swal("Successfully!", "You have successfully filtered", "success");
           }
         }
       }
@@ -305,13 +305,13 @@
       function time() {
         var today = new Date();
         var weekday = new Array(7);
-        weekday[0] = "Chủ Nhật";
-        weekday[1] = "Thứ Hai";
-        weekday[2] = "Thứ Ba";
-        weekday[3] = "Thứ Tư";
-        weekday[4] = "Thứ Năm";
-        weekday[5] = "Thứ Sáu";
-        weekday[6] = "Thứ Bảy";
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thusday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
         var day = weekday[today.getDay()];
         var dd = today.getDate();
         var mm = today.getMonth() + 1;
@@ -379,18 +379,18 @@
           input.each(function () {
             if (!$(this).val()) {
               $(this).addClass("error");
-              swal("Thông Báo!", "Dữ Liệu Trống Vui Lòng Kiểm Tra", "error");
+              swal("Successfully!", "Empty data. Please chack again", "error");
               empty = true;
             } else {
               $(this).removeClass("error");
-              swal("Thông Báo!", "Bạn Chưa Nhập Dữ Liệu", "error");
+              swal("Notification!", "You have not entered any person", "error");
             }
           });
           $(this).parents("tr").find(".error").first().focus();
           if (!empty) {
             input.each(function () {
               $(this).parent("td").html($(this).val());
-              swal("Thành Công", "Bạn Đã Cập Nhật Thành Công", "success");
+              swal("Successfully", "You have successfully added", "success");
             });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").removeAttr("disabled");
@@ -413,20 +413,20 @@
         });
         jQuery(function () {
           jQuery(".add").click(function () {
-            swal("Thành Công!", "Bạn Đã Sửa Thành Công", "success");
+            swal("Successfully", "You have successfully edited", "success");
           });
         });
         // Delete Hàng
         $(document).on("click", ".delete", function () {
           $(this).parents("tr").remove();
-          swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success");
+          swal("Successfully", "You have successfully deleted", "success");
           $(".add-new").removeAttr("disabled");
         });
       });
 
       jQuery(function () {
         jQuery(".cog").click(function () {
-          swal("Sorry!", "Tính Năng Này Chưa Có", "error");
+          swal("Sorry!", "This feature isn't available yet", "error");
         });
       });
     </script>

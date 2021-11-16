@@ -266,11 +266,11 @@
       <table class="table table-bordered" id="myTable">
         <thead>
           <tr class="ex">
-            <th width="auto">Name of order</th>
-            <th width="auto">Owner (người đặt)</th>
+            <th width="auto">Item</th>
+            <th width="auto">Orderer</th>
             <th>Status</th>
             <th>Price</th>
-            <th>Ngày đặt</th>
+            <th>Order date</th>
             <th width="5px; !important">Feature</th>
           </tr>
         </thead>
@@ -278,7 +278,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -296,7 +296,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -314,7 +314,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -332,7 +332,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -350,7 +350,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -368,7 +368,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -386,7 +386,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -404,7 +404,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -422,7 +422,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -440,7 +440,7 @@
           <tr>
             <td>Rau</td>
             <td>Nguyễn Văn Tèo</td>
-            <td>Đang giao</td>
+            <td>Delivering</td>
             <td>20000</td>
             <td>10/11/2999</td>
             <td>
@@ -515,13 +515,13 @@
       function time() {
         var today = new Date();
         var weekday = new Array(7);
-        weekday[0] = "Chủ Nhật";
-        weekday[1] = "Thứ Hai";
-        weekday[2] = "Thứ Ba";
-        weekday[3] = "Thứ Tư";
-        weekday[4] = "Thứ Năm";
-        weekday[5] = "Thứ Sáu";
-        weekday[6] = "Thứ Bảy";
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thusday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
         var day = weekday[today.getDay()];
         var dd = today.getDate();
         var mm = today.getMonth() + 1;
@@ -589,18 +589,18 @@
           input.each(function () {
             if (!$(this).val()) {
               $(this).addClass("error");
-              swal("Thông Báo!", "Dữ Liệu Trống Vui Lòng Kiểm Tra", "error");
+              swal("Notification!", "Empty data. Please check again", "error");
               empty = true;
             } else {
               $(this).removeClass("error");
-              swal("Thông Báo!", "Bạn Chưa Nhập Dữ Liệu", "error");
+              swal("Notification!", "You have not entered any order", "error");
             }
           });
           $(this).parents("tr").find(".error").first().focus();
           if (!empty) {
             input.each(function () {
               $(this).parent("td").html($(this).val());
-              swal("Thành Công", "Bạn Đã Cập Nhật Thành Công", "success");
+              swal("Successfully!", "You have successfully added this order", "success");
             });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").removeAttr("disabled");
@@ -623,20 +623,20 @@
         });
         jQuery(function () {
           jQuery(".add").click(function () {
-            swal("Thành Công!", "Bạn Đã Sửa Thành Công", "success");
+            swal("Successfully!", "You have successfully edited this order", "success");
           });
         });
         // Delete Hàng
         $(document).on("click", ".delete", function () {
           $(this).parents("tr").remove();
-          swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success");
+          swal("Successfully!", "You have successfully deleted this order", "success");
           $(".add-new").removeAttr("disabled");
         });
       });
 
       jQuery(function () {
         jQuery(".cog").click(function () {
-          swal("Sorry!", "Tính Năng Này Chưa Có", "error");
+          swal("Sorry!", "This feature is not available yet", "error");
         });
       });
     </script>
