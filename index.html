@@ -165,21 +165,21 @@
         }
         //Nếu không nhập gì mà nhấn đăng nhập thì sẽ báo lỗi
         if (username == "" && password == "") {
-          swal("Username and password are empty!", "Please check again", "warning");
+          swal("Username and password are empty!", "Please try again", "warning");
           return false;
         }
         //Nếu không nhập tài khoản sẽ báo lỗi
         if (username == null || username == "") {
           swal(
             "Username is empty",
-            "Please check your username again",
+            "Please check your username and try again",
             "error"
           );
           return false;
         }
         //Nếu không nhập mật khẩu sẽ báo lỗi
         if (password == null || password == "") {
-          swal("Password is empty", "Please check your password again", "error");
+          swal("Password is empty", "Please check your password and try again", "error");
           return false;
         }
         //Nếu mật khẩu dưới 8 ký tự
