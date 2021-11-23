@@ -63,17 +63,17 @@
 
           <form class="login100-form validate-form">
             <span class="login100-form-title">
-              ĐĂNG NHẬP QUẢN TRỊ WEBSITE
+              LOGIN AS ADMINISTRATOR
             </span>
             <form action="custommer.html">
               <div
                 class="wrap-input100 validate-input"
-                data-validate="Bạn cần nhập đúng thông tin như: ex@abc.xyz"
+                data-validate="You must enter valid email format: ex@abc.xyz"
               >
                 <input
                   class="input100"
                   type="text"
-                  placeholder="Tài Khoản"
+                  placeholder="Username"
                   name="username"
                   id="username"
                 />
@@ -85,12 +85,12 @@
 
               <div
                 class="wrap-input100 validate-input"
-                data-validate="Password không được bỏ trống!"
+                data-validate="Password must not be empty!"
               >
                 <input
                   class="input100"
                   type="password"
-                  placeholder="Mật Khẩu"
+                  placeholder="Password"
                   name="current-password"
                   id="password-field"
                 />
@@ -106,16 +106,16 @@
               <div class="container-login100-form-btn">
                 <input
                   type="button"
-                  value="Đăng Nhập"
+                  value="Log in"
                   id="submit"
                   onclick="validate()"
                 />
               </div>
             </form>
             <div class="text-center p-t-12">
-              <span class="txt1"> Bạn quên mật khẩu? </span>
+              <span class="txt1"> Did you forget your password? </span>
               <a class="txt2" href="/tim-lai-mat-khau.html">
-                Tài khoản / mật khẩu?
+                Username / Password?
               </a>
             </div>
             <div class="text-center p-t-135">
@@ -150,14 +150,14 @@
         var password = document.getElementById("password-field").value;
         //Set 1 Admin ảo để đăng nhập quản trị
         if (username == "admin" && password == "123456789") {
-          swal("Thành Công!", "Bạn Đã Đăng Nhập Với Tư Cách Admin", "success");
+          swal("Successfully!", "You logged in as an adminitrastor", "success");
           window.location = "custommer.html";
           return true;
         }
         if (username == "votruong" && password == "truongbin") {
           swal(
-            "Thành Công!",
-            "Bạn Đã Đăng Nhập Với Tư Cách Quyền Do Admin Cấp",
+            "Successfully!",
+            "You logged in with adminitrastor's permissions",
             "success"
           );
           window.location = "custommer.html";
@@ -165,44 +165,44 @@
         }
         //Nếu không nhập gì mà nhấn đăng nhập thì sẽ báo lỗi
         if (username == "" && password == "") {
-          swal("Bạn Chưa Nhập Thông Tin!", "Vui Lòng Kiểm Tra Lại", "warning");
+          swal("Username and password are empty!", "Please try again", "warning");
           return false;
         }
         //Nếu không nhập tài khoản sẽ báo lỗi
         if (username == null || username == "") {
           swal(
-            "Bạn Chưa Nhập Tài Khoản",
-            "Vui Lòng Kiểm Tra Tài Khoản",
+            "Username is empty",
+            "Please check your username and try again",
             "error"
           );
           return false;
         }
         //Nếu không nhập mật khẩu sẽ báo lỗi
         if (password == null || password == "") {
-          swal("Bạn Chưa Nhập Mật Khẩu", "Vui Lòng Kiểm Tra Mật Khẩu", "error");
+          swal("Password is empty", "Please check your password and try again", "error");
           return false;
         }
         //Nếu mật khẩu dưới 8 ký tự
         if (password.length < 9) {
           swal(
-            "Bạn Nhập Chưa Đủ Mật Khẩu",
-            "Mật Khẩu Phải Đủ 9 Ký Tự Bao Gồm Chữ Và Số",
+            "You entered insufficient password",
+            "Password must be 9 characters and include letters and numbers",
             "error"
           );
           return false;
         }
-        //Nếu mật khẩu trên 8 ký tự thì sẽ báo lỗi
+        //Nếu mật khẩu trên 9 ký tự thì sẽ báo lỗi
         if (password.length > 9) {
           swal(
-            "Bạn Nhập Dư Mật Khẩu",
-            "Vui Lòng Kiểm Tra Lại Mật Khẩu",
+            "Password length greater than 9 is not allowed",
+            "Please check again",
             "error"
           );
           return false;
         }
         swal(
-          "Thông Tin Bạn Nhập Không Tồn Tại",
-          "Vui Lòng Kiểm Tra Hoặc Nhấn Quên Mật Khẩu",
+          "Invalid Login",
+          "Either your username or password is incorrect. Please try again or click Username/Password to recover your account",
           "error"
         );
       }
@@ -228,13 +228,13 @@
       function time() {
         var today = new Date();
         var weekday = new Array(7);
-        weekday[0] = "Chủ Nhật";
-        weekday[1] = "Thứ Hai";
-        weekday[2] = "Thứ Ba";
-        weekday[3] = "Thứ Tư";
-        weekday[4] = "Thứ Năm";
-        weekday[5] = "Thứ Sáu";
-        weekday[6] = "Thứ Bảy";
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thusday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
         var day = weekday[today.getDay()];
         var dd = today.getDate();
         var mm = today.getMonth() + 1;
