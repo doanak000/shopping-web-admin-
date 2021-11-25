@@ -13,6 +13,8 @@ router.post("/items", async (req, res) => {
 });
 
 router.get("/items", (req, res) => {
+  // nếu chỉ /items thì sẽ show all data
+  // nếu /items?page=1 thì sẽ show 5 data đầu tiên, ?page=2 thì show 5 data tiếp theo và cứ vậy, mún đổi số data render ra thì đổi cái page_size
   var page = req.query.page;
   if (page) {
     page = parseInt(page);
