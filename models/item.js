@@ -14,6 +14,11 @@ const Item = mongoose.model("Item", {
     required: true,
     trim: true,
   },
+  imageLink: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
-module.exports = Task;
+module.exports = Item;

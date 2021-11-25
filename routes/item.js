@@ -2,11 +2,8 @@ const express = require("express");
 const Item = require("../models/item");
 const router = new express.Router();
 
-router.post("/items", auth, async (req, res) => {
-  const item = new Item({
-    ...req.body,
-  });
-
+router.post("/items", async (req, res) => {
+  const item = new Item(req.body);
   try {
     await item.save();
     res.status(201).send(item);
@@ -15,14 +12,14 @@ router.post("/items", auth, async (req, res) => {
   }
 });
 
-// router.get("/tasks", auth, async (req, res) => {
-//   try {
-//     await req.user.populate("tasks").execPopulate();
-//     res.send(req.user.tasks);
-//   } catch (e) {
-//     res.status(500).send();
-//   }
-// });
+router.get("/items", async (req, res) => {
+  try {
+    const items = await Item.find({});
+    res.send(items);
+  } catch (e) {
+    res.status(500).send();
+  }
+});
 
 // router.get("/tasks/:id", auth, async (req, res) => {
 //   const _id = req.params.id;

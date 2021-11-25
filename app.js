@@ -13,6 +13,8 @@ var revenueRouter = require("./components/revenue/revenue");
 var manageProductsRouter = require("./components/products/manageProducts");
 var resetPasswordRouter = require("./routes/resetPassword");
 
+const itemRouter = require("./routes/item");
+
 var app = express();
 
 // view engine setup
@@ -34,6 +36,7 @@ app.use("/revenue", revenueRouter);
 app.use("/manageProducts", manageProductsRouter);
 app.use("/resetPassword", resetPasswordRouter);
 
+app.use(itemRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
