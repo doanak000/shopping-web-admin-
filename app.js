@@ -6,10 +6,10 @@ var logger = require('morgan');
 var { engine } = require('express-handlebars');
 
 var loginRouter = require('./routes/login');
-var customerRouter = require('./routes/customer');
-var orderRouter = require('./routes/order');
-var revenueRouter = require('./routes/revenue');
-var manageProductsRouter = require('./routes/manageProducts');
+var customerRouter = require('./components/customers/customer');
+var orderRouter = require('./components/orders/order');
+var revenueRouter = require('./components/revenue/revenue');
+var manageProductsRouter = require('./components/products/manageProducts');
 var resetPasswordRouter = require('./routes/resetPassword');
 
 var app = express();
