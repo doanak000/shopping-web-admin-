@@ -1,7 +1,7 @@
 const express = require("express");
 const Item = require("../models/item");
 const router = new express.Router();
-
+const PAGE_SIZE = 5;
 router.post("/items", async (req, res) => {
   const item = new Item(req.body);
   try {
@@ -12,12 +12,28 @@ router.post("/items", async (req, res) => {
   }
 });
 
-router.get("/items", async (req, res) => {
-  try {
-    const items = await Item.find({});
-    res.send(items);
-  } catch (e) {
-    res.status(500).send();
+router.get("/items", (req, res) => {
+  var page = req.query.page;
+  if (page) {
+    page = parseInt(page);
+    var skip = (page - 1) * PAGE_SIZE;
+    Item.find({})
+      .skip(skip)
+      .limit(PAGE_SIZE)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).json("loi server");
+      });
+  } else {
+    Item.find({})
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).json("loi server");
+      });
   }
 });
 
