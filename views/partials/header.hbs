@@ -1,0 +1,119 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#myNavbar"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="#"
+          ><i class="fa fa-user-circle" aria-hidden="true"></i> Manage
+          Website</a
+        >
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active">
+            <a
+              href="./customer"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="User"
+              >User</a
+            >
+          </li>
+          <li>
+            <a
+              href="./admins"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="admin"
+              >Admin</a
+            >
+          </li>
+          <li>
+            <a
+              href="./order"
+              data-toggle="tooltip"
+                data-placement="bottom"
+                title="Order"
+                >Order</a
+              >
+            </li>
+            <li>
+              <a
+                href="./revenue"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Revenue"
+                >Revenue</a
+              >
+            </li>
+            <li>
+              <a
+                href="./manageProducts"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Manage Products"
+                >Manage Products</a
+              >
+            </li>
+            {{#if user}}
+            <li>
+              <a
+                href=""
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Account"
+                ><b>Account</b>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown">
+                <li>
+                  <a
+                    href="/profile"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="viewprofile"
+                    ><b>View profile</b
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="/logout"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Sign out"
+                    ><b>Sign out <i class="fas fa-sign-out-alt"></i></b
+                  ></a>
+                </li>
+                
+              </ul>
+            </li>
+            {{else}}
+            <li>
+              <a
+                href="/login"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="login"
+                ><b>Login</b>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/register"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="register"
+                ><b>Sign up</b>
+              </a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav>
